@@ -127,7 +127,7 @@ To identify the most in-demand skills for the top three most popular data roles,
 View my notebook with detailed steps here: ["Skills"](skills.ipynb).
 
 ### Visualize Data
-```python# Example for Data Analyst role
+```python
 # Plot Skill Counts
 fig , ax = plt.subplots(3, 1, figsize = (10,7))  
 
