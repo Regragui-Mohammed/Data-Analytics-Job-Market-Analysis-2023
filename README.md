@@ -49,7 +49,7 @@ df = dataset['train'].to_pandas()
 df['job_posted_date'] = pd.to_datetime(df['job_posted_date'])
 df['job_skills'] = df['job_skills'].apply(lambda x : ast.literal_eval(x) if pd.notna(x) else x)
 ```
-View my notebook with detailed steps here:"[Importing and Cleanup](<Part/Importing and Cleanup.ipynb>)
+View my notebook with detailed steps here:[ "Importing and Cleanup"](<Part/Importing and Cleanup.ipynb>)
 
 
 ## Filtering for U.S.-Based Jobs
