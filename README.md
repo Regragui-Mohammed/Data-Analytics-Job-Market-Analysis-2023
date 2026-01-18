@@ -208,6 +208,7 @@ plt.show()
 ```
 ### Results:
 ![alt text](Part/images/image.png)
+
 *line chart showing top 5 in-demand skills for Data Analysts in the US over months*
 
 ### Insight:
