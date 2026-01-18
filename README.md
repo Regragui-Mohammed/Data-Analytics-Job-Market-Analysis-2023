@@ -169,3 +169,47 @@ plt.show()
 
 ### Insight:
 The most in-demand skills vary by role but show strong overlap across positions. SQL and Python are consistently the most requested skills for Data Analysts, Data Scientists, and Data Engineers. Data Analyst roles emphasize tools like Excel and Tableau, Data Scientist roles focus more on Python, R, and statistical tools, while Data Engineer roles prioritize cloud platforms and big data technologies such as AWS, Azure, and Spark.
+
+## 4. How do in-demand skills trend over time for Data Analysts ?
+The analysis shows that core skills such as SQL and Excel maintain consistently high demand throughout the year, highlighting their importance as foundational tools for Data Analysts. Python and data visualization tools like Tableau show stable demand with moderate fluctuations, while some skills experience seasonal variation. Overall, the trends indicate that while demand shifts slightly over time, a strong set of core technical skills remains essential in the Data Analyst job market.
+
+View my notebook with detailed steps here: ["Trend"](Part/Trend.ipynb)
+
+### Visualize Data
+```python
+from matplotlib.ticker import PercentFormatter
+
+sns.set_theme(style='ticks')
+sns.lineplot(data=df_US_DA_skills_pivot_prcnt.iloc[:,:5],     
+             dashes = False,                                  #removing dashes
+             legend=False,
+             palette='tab10',                                 #color palette
+              )
+sns.despine()
+
+plt.title('Top 5 In-Demand Skills for Data Analysts in the US Over Months')
+plt.xlabel('2023')
+plt.ylabel('')
+
+# Formatting y-axis as percentage
+plt.gca().yaxis.set_major_formatter(PercentFormatter(decimals=0))                   
+
+
+offsets = {"python": 2, "tableau": -2.}  # ajuste si besoin
+
+for i in range(5):
+    skill = df_US_DA_skills_pivot_prcnt.columns[i]
+    y = df_US_DA_skills_pivot_prcnt.iloc[-1, i] + offsets.get(skill, 0)   #ajustement
+
+    plt.text(11.7, y, skill, va="center")                                 #ajout des labels de fin de ligne
+
+
+plt.show()
+```
+### Results:
+![alt text](image.png)
+*line chart showing top 5 in-demand skills for Data Analysts in the US over months*
+
+### Insight:
+SQL remains the most consistently in-demand skill throughout the year, despite a slight decline toward the end. Excel follows a similar pattern with moderate seasonal fluctuation, while Python and Tableau maintain steady demand. SAS remains the least requested among the top skills, showing relatively stable but lower demand overall.
+
