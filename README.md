@@ -87,7 +87,7 @@ plt.ylabel('')
 plt.show()
 ```
 ### Results:
-![alt text](image-2.png)
+![alt text](Part/images/image-2.png)
 *bar chart showing number of job postings by job title*
 
 ### Insight:
@@ -116,7 +116,7 @@ plt.ylabel('')
 plt.show()
 ```
 ### Results:
-![alt text](image-3.png)
+![Part/images/image-3.png](Part/images/image-3.png)
 *bar chart showing number of job postings by country (top 19)*
 ### Insight:
 The United States shows the highest demand for data analytics roles by a significant margin, far exceeding other countries. India and the United Kingdom follow, indicating strong global demand, while European countries such as France and Germany show moderate but consistent opportunities.
@@ -164,7 +164,7 @@ plt.suptitle('Top 7 Skills for Top 3 Job Roles in the US', y=1.02, fontsize=20, 
 plt.show()
 ```
 ### Results:
-![alt text](image-1.png)
+![!Part/images/image-1.png](Part/images/image-1.png)
 *bar charts showing top 7 skills for top 3 job roles in the US*
 
 ### Insight:
@@ -207,7 +207,7 @@ for i in range(5):
 plt.show()
 ```
 ### Results:
-![alt text](image.png)
+![alt text](Part/images/image.png)
 *line chart showing top 5 in-demand skills for Data Analysts in the US over months*
 
 ### Insight:
