@@ -214,3 +214,98 @@ plt.show()
 ### Insight:
 SQL remains the most consistently in-demand skill throughout the year, despite a slight decline toward the end. Excel follows a similar pattern with moderate seasonal fluctuation, while Python and Tableau maintain steady demand. SAS remains the least requested among the top skills, showing relatively stable but lower demand overall.
 
+## 5. How well do Data Analyst roles and associated skills pay ?
+The analysis shows that Data Analyst roles offer competitive salaries, with compensation increasing alongside specialization and technical expertise. While foundational skills such as SQL and Excel are widely required and provide solid earning potential, higher salaries are often associated with more advanced or specialized skills like Python, Tableau, and database technologies. Overall, combining core analytical skills with high-value technical tools leads to stronger salary outcomes in the Data Analyst job market.
+
+View my notebook with detailed steps here: ["Salary"](salary.ipynb).
+
+### Visualize Data
+```python
+sns.set_style('ticks')
+sns.boxplot(data = df_US_top7,
+            y ='job_title_short',
+            x = 'salary_year_avg',
+            order = top7_jobs_order                        #ordering job titles by median salary
+            )
+sns.despine()
+plt.title('Salary Distribution of Top 7 Job Titles in the US',
+          fontsize=16, 
+          fontweight="bold", 
+          pad=10)
+plt.xlabel('Salary Yearly Average (USD)')
+plt.ylabel('Job Title')
+plt.xlim(0, 600000)
+plt.gca().xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"${int(x/1000)}K"))        #formatting x-axis in K USD
+
+plt.show()
+```
+### Results:
+![alt text](Part/images/7.png)
+
+*box plot showing salary distribution of top 7 job titles in the US*
+
+### Insight:
+Salaries in the data job market increase clearly with seniority and technical specialization. Senior Data Scientist and Senior Data Engineer roles command the highest median salaries and show wide salary ranges, reflecting strong earning potential and variability at higher levels. In contrast, Data Analyst and Business Analyst roles tend to offer more stable but lower salary distributions, making them more consistent entry and mid-level positions compared to highly technical data roles.
+
+## Investigate Median Salary Vs Skill for Data Analysts
+
+This analysis explores how individual skills impact the median salary of Data Analyst roles in the United States. By examining both the frequency with which skills appear in job postings and the median salary associated with each skill, this section highlights which skills are most valuable in terms of compensation and how skill specialization influences earning potential.
+
+View my notebook with detailed steps here: ["Salary"](salary.ipynb).
+
+### Visualize Data
+```python
+fig , ax = plt.subplots(2, 1)
+
+fig.set_size_inches(9, 5)                 #setting figure size
+sns.set_theme(style='ticks')
+sns.barplot(data = df_top_skills_paid,
+            x = 'median',
+            y = 'job_skills',
+            ax = ax[0],
+            hue='median',
+            palette='dark:b_r',
+            legend=False
+            )
+
+ax[0].set_title('Top 7 Highest Paying Skills for Data Analysts in the US',
+                fontsize=14,
+                pad = 10,                 
+                fontweight="bold",)
+ax[0].set_xlabel('')
+ax[0].set_ylabel('')
+ax[0].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"${int(x/1000)}K"))
+
+sns.barplot(data = df_top_skills_demand,
+            x = 'median',
+            y = 'job_skills',
+            ax = ax[1],
+            hue='median',
+            palette='dark:b_r',
+            legend=False
+            )
+ax[1].set_title('Top 7 In-Demand Skills for Data Analysts in the US',
+                fontsize=14,
+                pad = 10,                 
+                fontweight="bold",)   
+ax[1].set_xlabel('Median Salary Yearly Average (USD)')
+ax[1].set_ylabel('')
+ax[1].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, loc: f"${int(x/1000)}K"))
+ax[1].set_xlim(ax[0].get_xlim())
+
+sns.despine()            #removing top and right spines
+
+plt.tight_layout()        #adjusting subplots to fit in figure area.
+
+plt.show()
+```
+### Results:
+![alt text](Part/images/2.png)
+
+*bar charts showing top 7 highest paying skills and top 7 in-demand skills for Data Analysts in the US*
+
+### Insight:
+The comparison between highest-paying and most in-demand skills for Data Analysts reveals a clear distinction between salary potential and market demand. Specialized and less common skills such as dplyr, GitLab, and Bitbucket are associated with significantly higher median salaries, indicating strong financial rewards for niche expertise. In contrast, widely requested skills like SQL, Excel, and Python appear in a much larger number of job postings but offer more moderate median salaries. This highlights the importance of combining foundational skills with specialized tools to maximize both employability and earning potential in data analytics.
+
+
+
